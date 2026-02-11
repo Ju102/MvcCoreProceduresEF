@@ -1,0 +1,52 @@
+﻿@model List<Doctor>
+@{
+    List<string> especialidades = ViewData["especialidades"] as List<string>;
+}
+<div class="container">
+    <div id="carta" class="w-50 p-3 bg-primary-subtle rounded-3 mx-auto">
+        <h2 class="text-center">Doctores por Especialidad</h2>
+        <form class="my-4" method="post">
+            <label class="form-label">Seleccione una especialidad</label>
+            <select class="form-select" name="especialidad">
+                @foreach (string opt in especialidades)
+                {
+                    <option value="@opt">@opt</option>
+                }
+            </select>
+            <label class="form-label">Introduce el incremento de salario:</label>
+            <input class="form-control" type="text" name="incremento" />
+            <div class="text-center">
+                <button name="action" value="EF" class="btn btn-success mt-4">Buscar con Entity</button>
+                <button name="action" value="SP" class="btn btn-primary mt-4">Buscar con Proced.</button>
+            </div>
+        </form>
+
+        @if (Model != null)
+        {
+            <hr />
+            <table class="table table-bordered table-success">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Apellido</th>
+                        <th>Especialidad</th>
+                        <th>Salario</th>
+                        <th>ID Hospital</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (Doctor doctor in Model)
+                    {
+                        <tr>
+                            <td>@doctor.IdDoctor</td>
+                            <td>@doctor.Apellido</td>
+                            <td>@doctor.Especialidad</td>
+                            <td>@doctor.Salario</td>
+                            <td>@doctor.IdHospital</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+    </div>
+</div>

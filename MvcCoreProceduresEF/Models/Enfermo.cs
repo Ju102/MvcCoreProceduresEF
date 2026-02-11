@@ -11,11 +11,13 @@ namespace MvcCoreProceduresEF.Models
         public string Inscripcion { get; set; }
 
         [Column("APELLIDO")]
+        [Required(ErrorMessage = "Tienes que poner el apellido, chaval")]
         public string Apellido { get; set; }
 
         [Column("DIRECCION")]
+        [Required(ErrorMessage = "Tienes que poner la dirección, chaval")]
         public string Direccion { get; set; }
-        
+
         [Column("FECHA_NAC")]
         public DateTime Fecha_Nacimiento { get; set; }
 
@@ -24,6 +26,5 @@ namespace MvcCoreProceduresEF.Models
 
         [Column("NSS")]
         public string SeguridadSocial { get; set; }
-
     }
 }

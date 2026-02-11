@@ -9,26 +9,26 @@
 <p>
     <a asp-action="Create">Create New</a>
 </p>
-<table class="table">
+<table class="table table-bordered table-primary">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Inscripcion)
+                Inscripción
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Apellido)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Direccion)
+                Dirección
             </th>
             <th>
                 Fecha de Nacimiento
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Genero)
+                Género
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.SeguridadSocial)
+                Nº Seguridad Social
             </th>
             <th>
                 Acciones
@@ -36,32 +36,33 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Inscripcion)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Apellido)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Direccion)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Fecha_Nacimiento)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Genero)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.SeguridadSocial)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
-            </td>
-        </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Inscripcion)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Apellido)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Direccion)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Fecha_Nacimiento)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Genero)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SeguridadSocial)
+                </td>
+                <td>
+                    @Html.ActionLink("Editar", "Edit", new { inscripcion = item.Inscripcion }) |
+                    @Html.ActionLink("Detalles", "Details", new { inscripcion = item.Inscripcion }) |
+                    @Html.ActionLink("Eliminar", "Delete", new { inscripcion = item.Inscripcion })
+                </td>
+            </tr>
+        }
     </tbody>
 </table>
