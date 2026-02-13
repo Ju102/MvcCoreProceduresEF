@@ -1,0 +1,30 @@
+﻿@model List<VistaEmpleado>
+
+<div class="container">
+    <h2>Lista de Empleados</h2>
+
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Apellido</th>
+                <th>Departamento</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(VistaEmpleado vista in Model)
+            {
+                <tr>
+                    <td>@vista.Apellido</td>
+                    <td>@vista.Departamento</td>
+                    <td>
+                        <a asp-action="Details" class="btn btn-primary" asp-route-id="@vista.Id">Detalles</a>
+                        <a asp-action="Edit" class="btn btn-warning" asp-route-id="@vista.Id">Editar</a>
+                        <a asp-action="Delete" class="btn btn-danger" asp-route-id="@vista.Id">Eliminar</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <a asp-action="Create" class="btn btn-success mt-3">Añadir</a>
+</div>
